@@ -1,25 +1,12 @@
 # DevBoard — Fundamentals (UI only)
-#
-# Single-stage image: install dependencies, build the SPA, then serve the
-# production bundle with Vite's built-in preview server.
-#
-# It is intentionally NOT multi-stage yet — that optimisation comes later in
-# the course. The goal here is a Dockerfile that reads top-to-bottom and is
-# easy to follow.
-
-# Pin a specific Node version (never use a floating `latest` tag).
 FROM node:20-alpine
 
 # Create a dedicated non-root user. Running as root inside a container is a
-# security risk, so we drop to this user before the app starts.
 RUN addgroup -S app && adduser -S -G app app
 
 # All app files live under /app.
 WORKDIR /app
 
-# Copy only the dependency manifests first, then install. Because these files
-# change less often than source code, Docker can reuse this cached layer on
-# rebuilds and skip re-installing every time you edit a component.
 # `npm ci` installs the exact versions from package-lock.json.
 COPY package*.json ./
 RUN npm ci
