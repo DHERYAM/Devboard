@@ -23,7 +23,7 @@ jobs:
                   with:
                     node-version: '20'
                     cache: npm
-                    cache-dependency-path: C:\Users\Dell\Desktop\github action devboard\Devboard\frontend\package-lock.json
+                    cache-dependency-path: frontend/package-lock.json
 
                 # npm package ko install krne ke liye npm ci means npm clean install
                 - name: install npm packages
