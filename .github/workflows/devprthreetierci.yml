@@ -37,7 +37,7 @@ jobs:
                   run: npm run lint
                   working-directory: frontend
                   
-                # test krne ke liye
+                # test krne ke liye try
                 - name: run tests
                   run: npm run test  
                   working-directory: frontend
