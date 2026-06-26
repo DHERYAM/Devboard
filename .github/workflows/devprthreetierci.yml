@@ -74,7 +74,7 @@ jobs:
 
                
                 - name: Run Go formatter
-                  run: go fmt ./...
+                  run: go fmt
 
                   working-directory: backend
 
@@ -82,12 +82,12 @@ jobs:
 
                 
                 - name: run Go Vet
-                  run: Go Vet
+                  run: go Vet
                   working-directory: backend
                   
                 # test krne ke liye try
                 - name: run test
-                  run: Go test  
+                  run: go test  
                   working-directory: backend
             
                 - name: Log in to Docker Hub
