@@ -1,0 +1,44 @@
+# Goal - I have to lint, Build, Test the code for frontened and backened 
+# then push images in dockerhub
+
+name: devprthreetierci
+
+on:
+    push:
+        branches: [advanced]
+
+jobs:
+    frontened:
+            #github runner pe chalega
+            runs-on: ubuntu-latest
+            steps: 
+                # code idhar lane ke liye
+                - name: checkout code
+                  uses: actions/checkout@v7
+
+                # linting pahle kaam kre, iske liye code node js pe hua hai so node js pahle setup kro
+                - name: setup NodeJs
+                  uses: actions/setup-node@v6
+                  # node js ka versionn vagera mention ke liye
+                  with:
+                    node-version: '20'
+                    cache: npm
+                    cache-dependency-path: C:\Users\Dell\Desktop\github action devboard\Devboard\frontend\package-lock.json
+
+                # npm package ko install krne ke liye npm ci means npm clean install
+                - name: install npm packages
+                  run: npm ci     
+
+                # linter ko chalane ke liye
+                - name: run linter
+                  run: npm run lint
+                  
+                # test krne ke liye
+                - name: run tests
+                  run: npm run test  
+            
+
+    
+    
+        
+    #backened:    
