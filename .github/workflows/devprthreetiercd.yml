@@ -31,7 +31,8 @@ jobs:
               with:
                 username: ${{ vars.DOCKERHUB_USERNAME }}
                 password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+            # docker compose setup
+            
             - name: Deploy the containers with Docker Compose
               run: |
                 docker compose pull
