@@ -5,7 +5,7 @@ name: devprthreetierci
 
 on:
     push:
-        branches: [master]
+        branches: [advanced]
 
 jobs:
     frontend:
