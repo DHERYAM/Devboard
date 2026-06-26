@@ -74,7 +74,7 @@ jobs:
 
                
                 - name: Run Go formatter
-                  run: go fmt
+                  run: go fmt ./backend/...
                   working-directory: backend
 
                 
