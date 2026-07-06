@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devboard-backend-deployment
+  namespace: devboard-namespace
+  labels:
+    app: devboard-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devboard-backend
+  template:
+    metadata:
+      labels:
+        app: devboard-backend
+    spec:
+      containers:
+      - name: devboard-backend
+        image: docker.io/dheryam/devboard-backend:latest
+        ports:
+        - containerPort: 8080
+
